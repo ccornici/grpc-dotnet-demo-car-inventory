@@ -1,0 +1,23 @@
+﻿syntax = "proto3";
+
+package CarInventory;
+
+service CarInventory {
+  rpc AddCar (Car) returns (Empty) {}
+
+  rpc RemoveCar (Car) returns (Empty) {}
+
+  rpc ListAllCars (Empty) returns (CarList) {}
+}
+
+message CarsList {
+  repeated Car cars;
+}
+
+message Car {
+  int32 id = 1;
+  string brand = 2;
+  string model = 3;
+  int32 modelYear = 4;
+  int32 inventoryCount = 5;
+}
