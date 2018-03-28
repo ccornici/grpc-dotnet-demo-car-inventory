@@ -21,6 +21,6 @@ cd /d %~dp0
 
 set TOOLS_PATH=..\packages\Grpc.Tools.1.10.0\tools\windows_x86
 
-%TOOLS_PATH%\protoc.exe -I proto --csharp_out protogen proto/CarInventory.proto
+%TOOLS_PATH%\protoc.exe -I proto --csharp_out protogen --grpc_out protogen proto/CarInventory.proto --plugin=protoc-gen-grpc=%TOOLS_PATH%\grpc_csharp_plugin.exe
 pause
 endlocal
