@@ -1,17 +1,21 @@
 ﻿syntax = "proto3";
 
+
+import "Empty.proto";
 package CarInventory;
 
+
+
 service CarInventory {
-  rpc AddCar (Car) returns (Empty) {}
+  rpc AddCar (Car) returns (google.protobuf.Empty) {}
 
-  rpc RemoveCar (Car) returns (Empty) {}
+  rpc RemoveCar (Car) returns (Car) {}
 
-  rpc ListAllCars (Empty) returns (CarList) {}
+  rpc ListAllCars (Car) returns (CarList) {}
 }
 
-message CarsList {
-  repeated Car cars;
+message CarList {
+  repeated Car cars = 1;
 }
 
 message Car {
