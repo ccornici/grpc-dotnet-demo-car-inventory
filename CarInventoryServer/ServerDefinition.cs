@@ -12,20 +12,28 @@ namespace CarInventoryServer
 {
     class ServerDefinition : CarInventoryBase
     {
+        // Fancy database
+        static CarList carList = new CarList();
+
         public override Task<Empty> AddCar(Car request, ServerCallContext context)
         {
-            Console.WriteLine($"Adding car: {request.Model}");
+            carList.Cars.Add(request);
+
+            Console.WriteLine($"Adding {request.Brand} {request.Model}");
             return Task.FromResult(new Empty());
         }
 
         public override Task<CarList> ListAllCars(Car request, ServerCallContext context)
         {
-            return base.ListAllCars(request, context);
+            return Task.FromResult(carList);
         }
 
         public override Task<Car> RemoveCar(Car request, ServerCallContext context)
         {
-            return base.RemoveCar(request, context);
+            carList.Cars.Remove(request);
+
+            Console.WriteLine($"Removing {request.Brand} {request.Model}");
+            return Task.FromResult(request);
         }
     }
 }

@@ -24,19 +24,18 @@ namespace CarInventoryProto {
           string.Concat(
             "ChJDYXJJbnZlbnRvcnkucHJvdG8SEUNhckludmVudG9yeVByb3RvGgtFbXB0",
             "eS5wcm90byIvCgdDYXJMaXN0EiQKBGNhcnMYASADKAsyFi5DYXJJbnZlbnRv",
-            "cnlQcm90by5DYXIiWgoDQ2FyEgoKAmlkGAEgASgFEg0KBWJyYW5kGAIgASgJ",
-            "Eg0KBW1vZGVsGAMgASgJEhEKCW1vZGVsWWVhchgEIAEoBRIWCg5pbnZlbnRv",
-            "cnlDb3VudBgFIAEoBTLOAQoMQ2FySW52ZW50b3J5EjoKBkFkZENhchIWLkNh",
-            "ckludmVudG9yeVByb3RvLkNhchoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIA",
-            "Ej0KCVJlbW92ZUNhchIWLkNhckludmVudG9yeVByb3RvLkNhchoWLkNhcklu",
-            "dmVudG9yeVByb3RvLkNhciIAEkMKC0xpc3RBbGxDYXJzEhYuQ2FySW52ZW50",
-            "b3J5UHJvdG8uQ2FyGhouQ2FySW52ZW50b3J5UHJvdG8uQ2FyTGlzdCIAYgZw",
-            "cm90bzM="));
+            "cnlQcm90by5DYXIiQgoDQ2FyEgoKAmlkGAEgASgFEg0KBWJyYW5kGAIgASgJ",
+            "Eg0KBW1vZGVsGAMgASgJEhEKCW1vZGVsWWVhchgEIAEoBTLOAQoMQ2FySW52",
+            "ZW50b3J5EjoKBkFkZENhchIWLkNhckludmVudG9yeVByb3RvLkNhchoWLmdv",
+            "b2dsZS5wcm90b2J1Zi5FbXB0eSIAEj0KCVJlbW92ZUNhchIWLkNhckludmVu",
+            "dG9yeVByb3RvLkNhchoWLkNhckludmVudG9yeVByb3RvLkNhciIAEkMKC0xp",
+            "c3RBbGxDYXJzEhYuQ2FySW52ZW50b3J5UHJvdG8uQ2FyGhouQ2FySW52ZW50",
+            "b3J5UHJvdG8uQ2FyTGlzdCIAYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::CarInventoryProto.CarList), global::CarInventoryProto.CarList.Parser, new[]{ "Cars" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CarInventoryProto.Car), global::CarInventoryProto.Car.Parser, new[]{ "Id", "Brand", "Model", "ModelYear", "InventoryCount" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::CarInventoryProto.Car), global::CarInventoryProto.Car.Parser, new[]{ "Id", "Brand", "Model", "ModelYear" }, null, null, null)
           }));
     }
     #endregion
@@ -180,7 +179,6 @@ namespace CarInventoryProto {
       brand_ = other.brand_;
       model_ = other.model_;
       modelYear_ = other.modelYear_;
-      inventoryCount_ = other.inventoryCount_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -232,17 +230,6 @@ namespace CarInventoryProto {
       }
     }
 
-    /// <summary>Field number for the "inventoryCount" field.</summary>
-    public const int InventoryCountFieldNumber = 5;
-    private int inventoryCount_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int InventoryCount {
-      get { return inventoryCount_; }
-      set {
-        inventoryCount_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Car);
@@ -260,7 +247,6 @@ namespace CarInventoryProto {
       if (Brand != other.Brand) return false;
       if (Model != other.Model) return false;
       if (ModelYear != other.ModelYear) return false;
-      if (InventoryCount != other.InventoryCount) return false;
       return true;
     }
 
@@ -271,7 +257,6 @@ namespace CarInventoryProto {
       if (Brand.Length != 0) hash ^= Brand.GetHashCode();
       if (Model.Length != 0) hash ^= Model.GetHashCode();
       if (ModelYear != 0) hash ^= ModelYear.GetHashCode();
-      if (InventoryCount != 0) hash ^= InventoryCount.GetHashCode();
       return hash;
     }
 
@@ -298,10 +283,6 @@ namespace CarInventoryProto {
         output.WriteRawTag(32);
         output.WriteInt32(ModelYear);
       }
-      if (InventoryCount != 0) {
-        output.WriteRawTag(40);
-        output.WriteInt32(InventoryCount);
-      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -318,9 +299,6 @@ namespace CarInventoryProto {
       }
       if (ModelYear != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(ModelYear);
-      }
-      if (InventoryCount != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(InventoryCount);
       }
       return size;
     }
@@ -341,9 +319,6 @@ namespace CarInventoryProto {
       }
       if (other.ModelYear != 0) {
         ModelYear = other.ModelYear;
-      }
-      if (other.InventoryCount != 0) {
-        InventoryCount = other.InventoryCount;
       }
     }
 
@@ -369,10 +344,6 @@ namespace CarInventoryProto {
           }
           case 32: {
             ModelYear = input.ReadInt32();
-            break;
-          }
-          case 40: {
-            InventoryCount = input.ReadInt32();
             break;
           }
         }
